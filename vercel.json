@@ -1,3 +1,14 @@
 {
-  "framework": null
+  "framework": null,
+  "rewrites": [
+    { "source": "/_next/:path*", "destination": "/asset/:path*" },
+    { "source": "/api/config", "destination": "/api/config.json" },
+    { "source": "/api/stats", "destination": "/api/stats.json" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [{ "key": "Content-Type", "value": "application/json; charset=utf-8" }]
+    }
+  ]
 }
